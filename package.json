@@ -1,0 +1,23 @@
+{
+  "name": "servidorexpress",
+  "version": "1.0.0",
+  "description": "Curso Node - Clase 6 Servidores Web  - Entrega 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gouvertrodolfo/ServidorExpress.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gouvertrodolfo/ServidorExpress/issues"
+  },
+  "homepage": "https://github.com/gouvertrodolfo/ServidorExpress#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
