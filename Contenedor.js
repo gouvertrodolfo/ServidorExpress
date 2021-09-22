@@ -17,9 +17,7 @@ const { get } = require('http');
         return array
     }
 
-    // save(Object): Number - Recibe un objeto, lo guarda en el archivo, devuelve el id asignado.
-    async save(object){
-
+    async getMaxId(){
         let items = await this.getAll()
 
         let id = 0
@@ -29,7 +27,14 @@ const { get } = require('http');
             }
         });
 
-        id++
+        return id
+    }
+
+    // save(Object): Number - Recibe un objeto, lo guarda en el archivo, devuelve el id asignado.
+    async save(object){
+
+        const id =  await this.getMaxId() + 1
+
         object.id = id
         items.push(object);
 
