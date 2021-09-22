@@ -17,7 +17,6 @@ app.get('/',(req,res)=>{
 
 
 app.get('/productos', async (req,res)=>{
-
     const archivo = new Contenedor('productos.txt')
     array = await archivo.getAll();
     console.log(array)
