@@ -3,23 +3,14 @@ const Contenedor =require('./Contenedor.js');
 const app = express()
 const PORT = 3000
 
-async function recuperarAll()
-{
-    const archivo = new Contenedor('productos.txt')
-    array = await archivo.getAll();
-    return array;
-}
-
 app.get('/',(req,res)=>{
-    res.send(`<a href=/productos> productos </a> 
-            <a href=/productoRandom> producto - Random </a>`)
+    res.send(`<a href=/productos> productos </a> <br/>
+              <a href=/productoRandom> producto - Random </a>`)
 })
-
 
 app.get('/productos', async (req,res)=>{
     const archivo = new Contenedor('productos.txt')
-    array = await archivo.getAll();
-    console.log(array)
+    const array = await archivo.getAll();
     res.json(array)
 })
 
@@ -31,11 +22,7 @@ app.get('/productoRandom',async (req,res)=>{
     res.json(producto)
 })
 
-
-
-
-
-const server = app.listen( PORT , ()=>{ 
+const server = app.listen( process.env.PORT PORT , ()=>{ 
     console.log(`Servidor http escuchando el puerto ${server.address.PORT}`)
 })
 

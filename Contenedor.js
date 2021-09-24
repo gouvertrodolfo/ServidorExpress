@@ -34,7 +34,7 @@ const { get } = require('http');
     async save(object){
 
         const id =  await this.getMaxId() + 1
-
+        let items = await this.getAll()
         object.id = id
         items.push(object);
 
