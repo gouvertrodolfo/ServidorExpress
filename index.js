@@ -2,6 +2,7 @@ const express = require('express')
 const Contenedor =require('./Contenedor.js');
 const app = express()
 const PORT = 3000
+const archivo = new Contenedor('productos.txt')
 
 app.get('/',(req,res)=>{
     res.send(`<a href=/productos> productos </a> <br/>
@@ -9,13 +10,11 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/productos', async (req,res)=>{
-    const archivo = new Contenedor('productos.txt')
     const array = await archivo.getAll();
     res.json(array)
 })
 
 app.get('/productoRandom',async (req,res)=>{
-    const archivo = new Contenedor('productos.txt')
     const MaxId= await archivo.getMaxId() +1
     const Id = Math.floor(Math.random() * (MaxId-1) + 1)
     const producto = await archivo.getById( Id)
